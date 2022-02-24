@@ -1,21 +1,16 @@
 # Case3
 
 Bir online alışveriş sitesinin kullanıcı yorumlarını yöneten bir api yazınız.
-- Bir kullanıcının sadece bir e-maili ve bir telefon numarası olabilir.
+- Bir kullanıcının sadece bir e-maili ve bir telefon numarası olabilir. ✓
 - Aynı kullanıcı adı, telefon ya da e-mail ile kayıt yapılamaz.
 - Kullanıcı tipi kişi ya da kurum olabilir. ✓
-1. Ürün controller ında;
--  **Ürün kaydeden bir servis yazınız.**
-
+1. **Ürün controller ında**;
+-  Ürün kaydeden bir servis yazınız.
  - Ürünleri listeleyebilen bir servis yazınız.
-  
   - Ürün idsinden ürünü bulan bir servis yazınız.
-  
   - Ürün silen bir metot yazınız.
-  
   - Ürün fiyatı güncelleyen bir metot yazınız. (Sadece fiyat)
   
-
 2. **Kullanıcı controller ında;**  
 - Tüm kullanıcıları getiren bir servis yazınız.  
 - Kullanıcı idsinden kullanıcıyı getiren bir servis yazınız.  
@@ -23,9 +18,8 @@ Bir online alışveriş sitesinin kullanıcı yorumlarını yöneten bir api yaz
 - Kullanıcı kaydedilebilecek bir servis yazınız.  
 - Kullanıcı silebilecek bir servis yazınız. (kullanıcı adı, ve telefon bilgileri alınmalı).  
 - Eğer kullanıcı adı ve telefon uyuşmuyorsa “XXX kullanıcı adı ile YYY telefonu bilgileri uyuşmamaktadır.”
-şeklinde bir uyarı vermeil.  
+şeklinde bir uyarı vermeli.  
 - Kullanıcı bilgilerini güncelleyebilecek bir servis yazınız.  
-
 
 3. **Yorum Controller ında;**
 - Bir kullanıcının yaptığı yorumlari getiren bir servis yazınız. Eğer ilgili kullanıcının henüz bir

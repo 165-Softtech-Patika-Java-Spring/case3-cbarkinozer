@@ -15,6 +15,7 @@ public class CmtComment {
     @GeneratedValue(generator ="CMT_COMMENT")
     private Long id;
 
+    @Lob
     @Column(name="COMMENT")
     private String comment;
 

@@ -17,10 +17,10 @@ public class UsrUser {
     @Column(name="USERNAME",length=30)
     private String username;
 
-    @Column(name="EMAIL",length=30)
+    @Column(name="EMAIL",length=30,unique = true)
     private String email;
 
-    @Column(name="PHONE_NUMBER",length=15)
+    @Column(name="PHONE_NUMBER",length=15,unique = true)
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
