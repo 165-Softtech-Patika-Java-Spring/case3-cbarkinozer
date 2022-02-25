@@ -1,5 +1,6 @@
 package com.softtech.softtechspringboot.usr.entity;
 
+import com.softtech.softtechspringboot.gen.entity.BaseEntity;
 import com.softtech.softtechspringboot.usr.enums.UsrUserType;
 import lombok.Data;
 
@@ -8,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="USR_USER")
 @Data
-public class UsrUser {
+public class UsrUser extends BaseEntity {
     @Id
     @SequenceGenerator(name ="UsrUser" ,sequenceName = "USR_USER_ID_SEQ")
     @GeneratedValue(generator = "UsrUser")

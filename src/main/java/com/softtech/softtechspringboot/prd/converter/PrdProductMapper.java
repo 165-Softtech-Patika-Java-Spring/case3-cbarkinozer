@@ -13,7 +13,7 @@ import java.util.List;
 public interface PrdProductMapper {
     PrdProductMapper INSTANCE = Mappers.getMapper(PrdProductMapper.class);
 
-    PrdProduct convertToAddAddress(PrdProductDto prdProductDto);
-    List<PrdProductDto> convertToAddAddressDtoList(List<PrdProduct> prdProductList);
-    PrdProductDto convertToAddAddressDto(PrdProduct prdProduct);
+    PrdProduct convertToPrdProduct(PrdProductDto prdProductDto);
+    List<PrdProductDto> convertToPrdProductDtoList(List<PrdProduct> prdProductList);
+    PrdProductDto convertToPrdProductDto(PrdProduct prdProduct);
 }

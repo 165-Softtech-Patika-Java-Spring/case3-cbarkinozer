@@ -1,6 +1,7 @@
 package com.softtech.softtechspringboot.cmt.entity;
 
 
+import com.softtech.softtechspringboot.gen.entity.BaseEntity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="CMT_COMMENT")
 @Data
-public class CmtComment {
+public class CmtComment extends BaseEntity {
 
     @Id
     @SequenceGenerator(name ="CMT_COMMENT" ,sequenceName = "CMT_COMMENT_ID_SEQ")
