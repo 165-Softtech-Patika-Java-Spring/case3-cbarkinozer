@@ -6,8 +6,8 @@ Bir online alışveriş sitesinin kullanıcı yorumlarını yöneten bir api yaz
 - Kullanıcı tipi kişi ya da kurum olabilir. ✓
 1. **Ürün controller ında**;
 -  Ürün kaydeden bir servis yazınız.(save) ✓
- - Ürünleri listeleyebilen bir servis yazınız.(findAll)
-  - Ürün idsinden ürünü bulan bir servis yazınız.(findById)
+ - Ürünleri listeleyebilen bir servis yazınız.(findAll) ✓
+  - Ürün idsinden ürünü bulan bir servis yazınız.(findById) 
   - Ürün silen bir metot yazınız.(delete)
   - Ürün fiyatı güncelleyen bir metot yazınız. (Sadece fiyat) (updatePrice)
   

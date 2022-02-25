@@ -8,15 +8,24 @@ import com.softtech.softtechspringboot.prd.service.entityservice.PrdProductEntit
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PrdProductService {
     private final PrdProductEntityService prdProductEntityService;
+
+    public List<PrdProductDto> findAll(){
+        List<PrdProduct> prdProductList = prdProductEntityService.findAll();
+        return PrdProductMapper.INSTANCE.convertToPrdProductDtoList(prdProductList);
+    }
 
     public PrdProductDto save(PrdProductDto prdProductDto){
         PrdProduct prdProduct = PrdProductMapper.INSTANCE.convertToPrdProduct(prdProductDto);
         prdProduct = prdProductEntityService.save(prdProduct);
         return PrdProductMapper.INSTANCE.convertToPrdProductDto(prdProduct);
     }
+
+
 
 }
