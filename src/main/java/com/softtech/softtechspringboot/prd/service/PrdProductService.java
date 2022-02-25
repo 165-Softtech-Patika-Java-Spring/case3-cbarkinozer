@@ -20,6 +20,11 @@ public class PrdProductService {
         return PrdProductMapper.INSTANCE.convertToPrdProductDtoList(prdProductList);
     }
 
+    public PrdProductDto findById(Long id){
+        PrdProduct prdProduct = prdProductEntityService.getByIdWithControl(id);
+        return PrdProductMapper.INSTANCE.convertToPrdProductDto(prdProduct);
+    }
+
     public PrdProductDto save(PrdProductDto prdProductDto){
         PrdProduct prdProduct = PrdProductMapper.INSTANCE.convertToPrdProduct(prdProductDto);
         prdProduct = prdProductEntityService.save(prdProduct);
