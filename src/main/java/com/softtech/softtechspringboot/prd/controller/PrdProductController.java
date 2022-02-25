@@ -1,5 +1,6 @@
 package com.softtech.softtechspringboot.prd.controller;
 
+import com.softtech.softtechspringboot.gen.dto.RestResponse;
 import com.softtech.softtechspringboot.prd.dto.PrdProductDto;
 import com.softtech.softtechspringboot.prd.entity.PrdProduct;
 import com.softtech.softtechspringboot.prd.service.PrdProductService;
@@ -31,6 +32,12 @@ public class PrdProductController {
     public ResponseEntity save(@RequestBody PrdProductDto prdProductDto){
         PrdProductDto prdProductDtoSaved = prdProductService.save(prdProductDto);
         return ResponseEntity.ok(prdProductDtoSaved);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity delete(@PathVariable Long id){
+        prdProductService.delete(id);
+        return ResponseEntity.ok(RestResponse.empty());
     }
 
 }

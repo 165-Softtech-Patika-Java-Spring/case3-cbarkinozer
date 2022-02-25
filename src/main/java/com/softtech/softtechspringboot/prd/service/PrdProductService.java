@@ -31,6 +31,11 @@ public class PrdProductService {
         return PrdProductMapper.INSTANCE.convertToPrdProductDto(prdProduct);
     }
 
+    public void delete(Long id){
+        PrdProduct prdProduct = prdProductEntityService.getByIdWithControl(id);
+        prdProductEntityService.delete(prdProduct);
+    }
+
 
 
 }
