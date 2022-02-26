@@ -12,11 +12,11 @@ Bir online alışveriş sitesinin kullanıcı yorumlarını yöneten bir api yaz
   - Ürün fiyatı güncelleyen bir metot yazınız. (Sadece fiyat) (updatePrice) ✓
   
 2. **Kullanıcı controller ında;**  
-- Tüm kullanıcıları getiren bir servis yazınız. (findAll) 
-- Kullanıcı idsinden kullanıcıyı getiren bir servis yazınız. (findById)  
-- Kullanıcı adından kullanıcıyı getiren bir servis yazınız.  (findBy)
-- Kullanıcı kaydedilebilecek bir servis yazınız.  (findByUsername)
-- Kullanıcı silebilecek bir servis yazınız. (kullanıcı adı, ve telefon bilgileri alınmalı).(deleteWithControl)  
+- Tüm kullanıcıları getiren bir servis yazınız. (findAll)  ✓
+- Kullanıcı idsinden kullanıcıyı getiren bir servis yazınız. (findById)   ✓
+- Kullanıcı adından kullanıcıyı getiren bir servis yazınız.  (findByUsername)  ✓
+- Kullanıcı kaydedilebilecek bir servis yazınız.  (save) ✓
+- Kullanıcı silebilecek bir servis yazınız. (kullanıcı adı, ve telefon bilgileri alınmalı). (delete)  
 - Eğer kullanıcı adı ve telefon uyuşmuyorsa “XXX kullanıcı adı ile YYY telefonu bilgileri uyuşmamaktadır.”
 şeklinde bir uyarı vermeli.  
 - Kullanıcı bilgilerini güncelleyebilecek bir servis yazınız.  (update)

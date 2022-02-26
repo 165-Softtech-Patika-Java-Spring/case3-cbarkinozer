@@ -1,20 +1,20 @@
 package com.softtech.softtechspringboot.usr.converter;
 
-import com.softtech.softtechspringboot.cmt.converter.CmtCommentMapper;
-import com.softtech.softtechspringboot.cmt.dto.CmtCommentDto;
-import com.softtech.softtechspringboot.cmt.entity.CmtComment;
+
+import com.softtech.softtechspringboot.usr.dto.UsrUserDto;
+import com.softtech.softtechspringboot.usr.entity.UsrUser;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface UsrUserMapper {
 
-    CmtCommentMapper INSTANCE = Mappers.getMapper(CmtCommentMapper.class);
+    UsrUserMapper INSTANCE = Mappers.getMapper(UsrUserMapper.class);
 
-    CmtComment convertToAddAddress(CmtCommentDto cmtCommentDto);
-    List<CmtCommentDto> convertToAddAddressDtoList(List<CmtComment> cmtCommentList);
-    CmtCommentDto convertToAddAddressDto(CmtComment cmtComment);
+    UsrUser convertToUsrUser(UsrUserDto usrUserDto);
+    List<UsrUserDto> convertToUsrUserDtoList(List<UsrUser> usrUserList);
+    UsrUserDto convertToUsrUserDto(UsrUser usrUser);
 }

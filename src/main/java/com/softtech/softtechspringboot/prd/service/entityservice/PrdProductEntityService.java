@@ -3,7 +3,6 @@ package com.softtech.softtechspringboot.prd.service.entityservice;
 import com.softtech.softtechspringboot.gen.exceptions.ItemNotFoundException;
 import com.softtech.softtechspringboot.gen.service.BaseEntityService;
 import com.softtech.softtechspringboot.prd.dao.PrdProductDao;
-import com.softtech.softtechspringboot.prd.dto.PrdProductDto;
 import com.softtech.softtechspringboot.prd.entity.PrdProduct;
 import com.softtech.softtechspringboot.prd.enums.PrdErrorMessage;
 import org.springframework.beans.factory.annotation.Autowired;
