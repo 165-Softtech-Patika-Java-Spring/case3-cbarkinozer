@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -28,13 +29,19 @@ public class PrdProductController {
         return ResponseEntity.ok(RestResponse.of(prdProductDto));
     }
 
-    @PostMapping
+    @PostMapping("/save")
     public ResponseEntity save(@RequestBody PrdProductDto prdProductDto){
         PrdProductDto prdProductDtoSaved = prdProductService.save(prdProductDto);
         return ResponseEntity.ok(RestResponse.of(prdProductDtoSaved));
     }
 
-    @DeleteMapping("/{id}")
+    @PatchMapping("/update-price/{id}")
+    public ResponseEntity updatePrice(@PathVariable Long id, @RequestParam BigDecimal price){
+        PrdProductDto prdProductDto = prdProductService.updatePrice(id,price);
+        return ResponseEntity.ok(RestResponse.of(prdProductDto));
+    }
+
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity delete(@PathVariable Long id){
         prdProductService.delete(id);
         return ResponseEntity.ok(RestResponse.empty());

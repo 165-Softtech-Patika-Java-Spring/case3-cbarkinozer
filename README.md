@@ -9,7 +9,7 @@ Bir online alışveriş sitesinin kullanıcı yorumlarını yöneten bir api yaz
  - Ürünleri listeleyebilen bir servis yazınız.(findAll) ✓
   - Ürün idsinden ürünü bulan bir servis yazınız.(findById) ✓
   - Ürün silen bir metot yazınız.(delete) ✓
-  - Ürün fiyatı güncelleyen bir metot yazınız. (Sadece fiyat) (updatePrice)
+  - Ürün fiyatı güncelleyen bir metot yazınız. (Sadece fiyat) (updatePrice) ✓
   
 2. **Kullanıcı controller ında;**  
 - Tüm kullanıcıları getiren bir servis yazınız. (findAll) 

@@ -8,11 +8,13 @@ import com.softtech.softtechspringboot.prd.service.entityservice.PrdProductEntit
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class PrdProductService {
+
     private final PrdProductEntityService prdProductEntityService;
 
     public List<PrdProductDto> findAll(){
@@ -31,11 +33,14 @@ public class PrdProductService {
         return PrdProductMapper.INSTANCE.convertToPrdProductDto(prdProduct);
     }
 
+    public PrdProductDto updatePrice(Long id, BigDecimal price) {
+        PrdProduct prdProduct = prdProductEntityService.updatePrice(id,price);
+        return PrdProductMapper.INSTANCE.convertToPrdProductDto(prdProduct);
+    }
+
     public void delete(Long id){
         PrdProduct prdProduct = prdProductEntityService.getByIdWithControl(id);
         prdProductEntityService.delete(prdProduct);
     }
-
-
 
 }
