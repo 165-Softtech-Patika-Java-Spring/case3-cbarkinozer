@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 @Table(name="PRD_PRODUCT")
 @Data
 public class PrdProduct extends BaseEntity {
+
     @Id
     @SequenceGenerator(name ="PrdProduct" , sequenceName = "PRD_PRODUCT_ID_SEQ")
     @GeneratedValue(generator ="PrdProduct")
@@ -20,4 +21,5 @@ public class PrdProduct extends BaseEntity {
 
     @Column(name = "PRICE",precision = 15, scale=2,nullable = false)
     private BigDecimal price;
+
 }

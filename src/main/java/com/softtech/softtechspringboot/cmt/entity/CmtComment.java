@@ -17,12 +17,12 @@ public class CmtComment extends BaseEntity {
     private Long id;
 
     @Lob
-    @Column(name="COMMENT")
+    @Column(name="COMMENT",nullable = false)
     private String comment;
 
-    @Column(name="ID_PRD_PRODUCT")
+    @Column(name="ID_PRD_PRODUCT",nullable = false)
     private Long productId;
 
-    @Column(name="ID_USR_USER")
+    @Column(name="ID_USR_USER",nullable = false)
     private Long userId;
 }

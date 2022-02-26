@@ -10,21 +10,23 @@ import javax.persistence.*;
 @Table(name="USR_USER")
 @Data
 public class UsrUser extends BaseEntity {
+
     @Id
     @SequenceGenerator(name ="UsrUser" ,sequenceName = "USR_USER_ID_SEQ")
     @GeneratedValue(generator = "UsrUser")
     private Long id;
 
-    @Column(name="USERNAME",length=30)
+    @Column(name="USERNAME",length=30,unique = true,nullable = false)
     private String username;
 
-    @Column(name="EMAIL",length=30,unique = true)
+    @Column(name="EMAIL",length=30,unique = true,nullable = false)
     private String email;
 
-    @Column(name="PHONE_NUMBER",length=15,unique = true)
+    @Column(name="PHONE_NUMBER",length=15,unique = true,nullable = false)
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
-    @Column(name="USER_TYPE",length=30)
+    @Column(name="USER_TYPE",length=30,nullable = false)
     private UsrUserType userType;
+
 }
