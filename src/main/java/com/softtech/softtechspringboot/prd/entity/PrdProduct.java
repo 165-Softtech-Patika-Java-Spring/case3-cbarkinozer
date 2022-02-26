@@ -1,14 +1,15 @@
 package com.softtech.softtechspringboot.prd.entity;
 
 import com.softtech.softtechspringboot.gen.entity.BaseEntity;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 @Table(name="PRD_PRODUCT")
-@Data
+@Getter @Setter
 public class PrdProduct extends BaseEntity {
 
     @Id

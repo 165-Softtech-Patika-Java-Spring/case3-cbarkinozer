@@ -2,13 +2,14 @@ package com.softtech.softtechspringboot.usr.entity;
 
 import com.softtech.softtechspringboot.gen.entity.BaseEntity;
 import com.softtech.softtechspringboot.usr.enums.UsrUserType;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="USR_USER")
-@Data
+@Getter @Setter
 public class UsrUser extends BaseEntity {
 
     @Id

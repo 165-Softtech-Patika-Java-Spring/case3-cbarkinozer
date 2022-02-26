@@ -2,13 +2,14 @@ package com.softtech.softtechspringboot.cmt.entity;
 
 
 import com.softtech.softtechspringboot.gen.entity.BaseEntity;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name="CMT_COMMENT")
-@Data
+@Getter @Setter
 public class CmtComment extends BaseEntity {
 
     @Id

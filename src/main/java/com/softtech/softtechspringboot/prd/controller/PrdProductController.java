@@ -20,18 +20,18 @@ public class PrdProductController {
     @GetMapping
     public ResponseEntity findAll(){
         List<PrdProductDto> prdProductDtoList = prdProductService.findAll();
-        return ResponseEntity.ok(prdProductDtoList);
+        return ResponseEntity.ok(RestResponse.of(prdProductDtoList));
     }
     @GetMapping("/{id}")
     public ResponseEntity findById(@PathVariable Long id){
         PrdProductDto prdProductDto = prdProductService.findById(id);
-        return ResponseEntity.ok(prdProductDto);
+        return ResponseEntity.ok(RestResponse.of(prdProductDto));
     }
 
     @PostMapping
     public ResponseEntity save(@RequestBody PrdProductDto prdProductDto){
         PrdProductDto prdProductDtoSaved = prdProductService.save(prdProductDto);
-        return ResponseEntity.ok(prdProductDtoSaved);
+        return ResponseEntity.ok(RestResponse.of(prdProductDtoSaved));
     }
 
     @DeleteMapping("/{id}")
