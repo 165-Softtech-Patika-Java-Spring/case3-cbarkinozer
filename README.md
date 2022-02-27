@@ -16,7 +16,7 @@ Bir online alışveriş sitesinin kullanıcı yorumlarını yöneten bir api yaz
 - Kullanıcı adından kullanıcıyı getiren bir servis yazınız.  (findByUsername)  ✓
 - Kullanıcı kaydedilebilecek bir servis yazınız.  (save) ✓
 - Kullanıcı aynı kullanıcı adı, telefon ya da e-mail ile  kayıt yapamaz. ✓
-- Kullanıcı silebilecek bir servis yazınız. (kullanıcı adı, ve telefon bilgileri alınmalı). (delete)  
+- Kullanıcı silebilecek bir servis yazınız. (kullanıcı adı, ve telefon bilgileri alınmalı). (delete)  ✓
 - Eğer kullanıcı adı ve telefon uyuşmuyorsa “XXX kullanıcı adı ile YYY telefonu bilgileri uyuşmamaktadır.”
 şeklinde bir uyarı vermeli.  
 - Kullanıcı bilgilerini güncelleyebilecek bir servis yazınız.  (update) ✓

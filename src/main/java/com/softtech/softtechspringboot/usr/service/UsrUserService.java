@@ -40,4 +40,8 @@ public class UsrUserService {
         usrUser = usrUserEntityService.update(usrUser);
         return UsrUserMapper.INSTANCE.convertToUsrUserDto(usrUser);
     }
+
+    public void delete(String username, String phoneNumber) {
+        usrUserEntityService.deleteWithControl(username,phoneNumber);
+    }
 }

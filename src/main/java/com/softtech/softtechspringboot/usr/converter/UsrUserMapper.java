@@ -20,4 +20,5 @@ public interface UsrUserMapper {
 
     List<UsrUserDto> convertToUsrUserDtoList(List<UsrUser> usrUserList);
     UsrUserDto convertToUsrUserDto(UsrUser usrUser);
+
 }

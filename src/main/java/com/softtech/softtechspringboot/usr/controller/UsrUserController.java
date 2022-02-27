@@ -1,7 +1,6 @@
 package com.softtech.softtechspringboot.usr.controller;
 
 import com.softtech.softtechspringboot.gen.dto.RestResponse;
-import com.softtech.softtechspringboot.prd.dto.PrdProductDto;
 import com.softtech.softtechspringboot.usr.dto.UsrUserDto;
 import com.softtech.softtechspringboot.usr.dto.UsrUserUpdateDto;
 import com.softtech.softtechspringboot.usr.service.UsrUserService;
@@ -10,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -57,6 +55,11 @@ public class UsrUserController {
         UsrUserDto usrUserDtoUpdated = usrUserService.update(usrUserUpdateDto);
         return ResponseEntity.ok(RestResponse.of(usrUserDtoUpdated));
 
+    }
+    @DeleteMapping("/delete")
+    public ResponseEntity delete(@RequestParam String username, String phoneNumber ) {
+        usrUserService.delete(username,phoneNumber);
+        return ResponseEntity.ok(RestResponse.empty());
     }
 
 }
