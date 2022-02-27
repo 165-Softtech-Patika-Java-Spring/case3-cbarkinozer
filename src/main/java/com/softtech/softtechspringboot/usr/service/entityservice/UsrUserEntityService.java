@@ -30,7 +30,7 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
         if (userOptional.isPresent()){
             usrUser = userOptional.get();
         } else {
-            throw new ItemNotFoundException(UsrErrorMessage.USER_ERROR_MESSAGE);
+            throw new ItemNotFoundException(UsrErrorMessage.USER_NOT_FOUND);
         }
 
         return usrUser;
@@ -39,9 +39,9 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
 
     public UsrUser saveWithControl(UsrUser usrUser){
 
-        checkUsername(usrUser);
-        checkEmail(usrUser);
-        checkPhoneNumber(usrUser);
+        checkIsUsernameDuplicate(usrUser);
+        checkIsEmailDuplicate(usrUser);
+        checkIsPhoneNumberDuplicate(usrUser);
 
         super.save(usrUser);
 
@@ -49,7 +49,7 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
 
     }
 
-    private void checkUsername(UsrUser usrUser){
+    private void checkIsUsernameDuplicate(UsrUser usrUser){
 
         Optional<UsrUser> usernameMatches = usrUserDao.findByUsername(usrUser.getUsername());
 
@@ -59,7 +59,7 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
 
     }
 
-    private void checkEmail(UsrUser usrUser){
+    private void checkIsEmailDuplicate(UsrUser usrUser){
 
         Optional<UsrUser> emailMatches = usrUserDao.findByEmail(usrUser.getEmail());
 
@@ -69,7 +69,7 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
 
     }
 
-    private void checkPhoneNumber(UsrUser usrUser){
+    private void checkIsPhoneNumberDuplicate(UsrUser usrUser){
 
         Optional<UsrUser> phoneNumberMatches = usrUserDao.findByPhoneNumber(usrUser.getPhoneNumber());
 
@@ -79,6 +79,20 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
 
     }
 
+    public UsrUser update(UsrUser usrUser) {
 
+        checkIsUserExist(usrUser);
+        saveWithControl(usrUser);
+        return usrUser;
+    }
+
+    private void checkIsUserExist(UsrUser usrUser) {
+
+        Long id = usrUser.getId();
+        boolean isExist = super.existsById(id);
+        if (!isExist){
+            throw new ItemNotFoundException(UsrErrorMessage.USER_NOT_FOUND);
+        }
+    }
 
 }

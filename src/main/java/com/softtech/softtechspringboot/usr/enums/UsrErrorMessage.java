@@ -4,7 +4,7 @@ import com.softtech.softtechspringboot.gen.enums.BaseErrorMessage;
 
 public enum UsrErrorMessage implements BaseErrorMessage {
 
-    USER_ERROR_MESSAGE("User not found!"),
+    USER_NOT_FOUND("User not found!"),
     USERNAME_EXISTS("Username of the user already exists!"),
     EMAIL_EXISTS("Email of the user already exists!"),
     PHONE_NUMBER_EXISTS("Phone number of the user already exists!"),
