@@ -53,4 +53,6 @@ public abstract class BaseEntityService<E extends BaseEntity,D extends JpaReposi
     public D getDao() {
         return dao;
     }
+
+
 }

@@ -4,7 +4,6 @@ import com.softtech.softtechspringboot.cmt.converter.CmtCommentMapper;
 import com.softtech.softtechspringboot.cmt.dto.CmtCommentDto;
 import com.softtech.softtechspringboot.cmt.entity.CmtComment;
 import com.softtech.softtechspringboot.cmt.service.entityservice.CmtCommentEntityService;
-import com.softtech.softtechspringboot.usr.dto.UsrUserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

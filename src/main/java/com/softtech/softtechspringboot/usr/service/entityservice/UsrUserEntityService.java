@@ -55,13 +55,19 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
         return usrUser;
 
     }
+    /*
+    *  I am well aware that following three methods are same, but I could not get generalized
+    *  them because of the method usage.
+    */
 
     private void checkIfUsernameAlreadyExists(UsrUser usrUser){
 
         Optional<UsrUser> usernameMatches = usrUserDao.findByUsername(usrUser.getUsername());
-
         if(usernameMatches.isPresent()){
-            throw new ItemAlreadyExistsException(UsrErrorMessage.USERNAME_ALREADY_EXISTS);
+            boolean isItItself= usernameMatches.get().getId().equals(usrUser.getId());
+            if(!isItItself){
+                throw new ItemAlreadyExistsException(UsrErrorMessage.USERNAME_ALREADY_EXISTS);
+            }
         }
 
     }
@@ -71,9 +77,11 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
         Optional<UsrUser> emailMatches = usrUserDao.findByEmail(usrUser.getEmail());
 
         if(emailMatches.isPresent()){
-            throw new ItemAlreadyExistsException(UsrErrorMessage.EMAIL_ALREADY_EXISTS);
+            boolean isItItself= emailMatches.get().getEmail().equals(usrUser.getEmail());
+            if(!isItItself){
+                throw new ItemAlreadyExistsException(UsrErrorMessage.EMAIL_ALREADY_EXISTS);
+            }
         }
-
     }
 
     private void checkIfPhoneNumberAlreadyExists(UsrUser usrUser){
@@ -81,7 +89,11 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
         Optional<UsrUser> phoneNumberMatches = usrUserDao.findByPhoneNumber(usrUser.getPhoneNumber());
 
         if(phoneNumberMatches.isPresent()){
-            throw new ItemAlreadyExistsException(UsrErrorMessage.PHONE_NUMBER_ALREADY_EXISTS);
+            boolean isItItself = phoneNumberMatches.get().getPhoneNumber().equals(usrUser.getPhoneNumber());
+            if(!isItItself){
+                throw new ItemAlreadyExistsException(UsrErrorMessage.PHONE_NUMBER_ALREADY_EXISTS);
+            }
+
         }
 
     }
