@@ -50,7 +50,7 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
         checkIfEmailAlreadyExists(usrUser);
         checkIfPhoneNumberAlreadyExists(usrUser);
 
-        super.save(usrUser);
+        usrUserDao.save(usrUser);
 
         return usrUser;
 
@@ -96,7 +96,7 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
     private void checkIfUserExistById(UsrUser usrUser) {
 
         Long id = usrUser.getId();
-        boolean isExist = super.existsById(id);
+        boolean isExist = usrUserDao.existsById(id);
         if (!isExist){
             throw new ItemNotFoundException(UsrErrorMessage.USER_NOT_FOUND);
         }

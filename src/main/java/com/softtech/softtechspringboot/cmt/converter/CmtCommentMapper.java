@@ -13,8 +13,8 @@ public interface CmtCommentMapper {
 
     CmtCommentMapper INSTANCE = Mappers.getMapper(CmtCommentMapper.class);
 
-    CmtComment convertToAddAddress(CmtCommentDto cmtCommentDto);
-    List<CmtCommentDto> convertToAddAddressDtoList(List<CmtComment> cmtCommentList);
-    CmtCommentDto convertToAddAddressDto(CmtComment cmtComment);
+    CmtComment convertToCmtComment(CmtCommentDto cmtCommentDto);
+    List<CmtCommentDto> convertToCmtCommentDtoList(List<CmtComment> cmtCommentList);
+    CmtCommentDto convertToCmtCommentDto(CmtComment cmtComment);
 
 }

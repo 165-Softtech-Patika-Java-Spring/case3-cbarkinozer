@@ -22,17 +22,17 @@ Bir online alışveriş sitesinin kullanıcı yorumlarını yöneten bir api yaz
 - Kullanıcı bilgilerini güncelleyebilecek bir servis yazınız.  (update) ✓
 
 3. **Yorum Controller ında;**
-- Bir kullanıcının yaptığı yorumlari getiren bir servis yazınız. Eğer ilgili kullanıcının henüz bir
-yorumu yoksa “XXX kullanıcı henüz bir yorum yazmamıştır” şeklinde bir hata vermeli. (findByUserIdWithControl)  
-- Bir ürüne yapılan tüm yorumları getiren bir servis yazınız. Eğer o ürüne henüz bir yorum  (findAllByProductIdWithControl)
+- Bir kullanıcının yaptığı yorumlari getiren bir servis yazınız. Eğer ilgili kullanıcının henüz bir 
+yorumu yoksa “XXX kullanıcı henüz bir yorum yazmamıştır” şeklinde bir hata vermeli. (findByUserIdWithControl)   ✓
+- Bir ürüne yapılan tüm yorumları getiren bir servis yazınız. Eğer o ürüne henüz bir yorum  (findAllByProductIdWithControl) ✓
 yazılmamışsa “XXX ürüne henüz bir yorum yazılmamıştır” şeklinde bir hata vermeli.  
-- Yeni bir yorum yazılabilecek bir servis yazınız. (save)  
-- Yorum silebilecek bir servis yazınız.  (delete)
+- Yeni bir yorum yazılabilecek bir servis yazınız. (save)  ✓
+- Yorum silebilecek bir servis yazınız.  (delete) ✓
 
 #### Notlar:
 Yukarıdaki hiçbir servis Persistance nesne almamalı ya da dönmemelidir.(dto ve mapper kullan) ✓  
-Pathlere dikkat ediniz.  
-Dao ve entityService deki method isimlerine dikkat ediniz.  
+Pathlere dikkat ediniz.  ✓
+Dao ve entityService deki method isimlerine dikkat ediniz.  ✓
 Dto isimlendirmeleri, fieldları vs size bırakıyorum.  ✓
 Spring Data JPA da sorgu yazmak ile alakalı ya da otomatik sorguların nasıl yapıldığı ile alakalı da ufak
-bir araştırma yapmanız gerekecek.   
+bir araştırma yapmanız gerekecek.   ✓ 

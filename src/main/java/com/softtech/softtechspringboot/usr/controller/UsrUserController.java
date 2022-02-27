@@ -49,6 +49,7 @@ public class UsrUserController {
         return ResponseEntity.ok(RestResponse.of(usrUserDtoSaved));
 
     }
+
     @PatchMapping("/update")
     public ResponseEntity update(@RequestBody UsrUserUpdateDto usrUserUpdateDto){
 
@@ -56,6 +57,7 @@ public class UsrUserController {
         return ResponseEntity.ok(RestResponse.of(usrUserDtoUpdated));
 
     }
+
     @DeleteMapping("/delete")
     public ResponseEntity delete(@RequestParam String username, String phoneNumber ) {
         usrUserService.delete(username,phoneNumber);
