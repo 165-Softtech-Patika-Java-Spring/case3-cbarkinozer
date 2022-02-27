@@ -10,5 +10,8 @@ import java.util.Optional;
 public interface UsrUserDao extends JpaRepository<UsrUser,Long> {
 
     Optional<UsrUser> findByUsername(String username);
+    Optional<UsrUser> findByEmail(String email);
+    Optional<UsrUser> findByPhoneNumber(String phoneNumber);
+
 
 }

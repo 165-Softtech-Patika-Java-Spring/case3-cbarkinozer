@@ -30,7 +30,7 @@ public class UsrUserService {
 
     public UsrUserDto save(UsrUserDto usrUserDto) {
         UsrUser usrUser = UsrUserMapper.INSTANCE.convertToUsrUser(usrUserDto);
-        usrUser = usrUserEntityService.save(usrUser);
+        usrUser = usrUserEntityService.saveWithControl(usrUser);
         return UsrUserMapper.INSTANCE.convertToUsrUserDto(usrUser);
     }
 }
