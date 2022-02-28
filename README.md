@@ -36,3 +36,15 @@ Dao ve entityService deki method isimlerine dikkat ediniz.  ✓
 Dto isimlendirmeleri, fieldları vs size bırakıyorum.  ✓
 Spring Data JPA da sorgu yazmak ile alakalı ya da otomatik sorguların nasıl yapıldığı ile alakalı da ufak
 bir araştırma yapmanız gerekecek.   ✓ 
+
+# Notes  
+Database table design : https://ibb.co/wpbn6DF  
+All works on Swagger  
+
+# TODO  
+BaseEntityService exceptions return ItemNotFound exceptions instead of entity-specific not found exceptions.  
+
+Exceptions are not parameterized with fields and names.  
+(E.g Instead saying xxx email does not match yyy phone number; exceptions say email and phone number does not match.)  
+
+UserEntityService methods needs refactoring.  
