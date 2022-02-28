@@ -2,6 +2,7 @@ package com.softtech.softtechspringboot.usr.controller;
 
 import com.softtech.softtechspringboot.gen.dto.RestResponse;
 import com.softtech.softtechspringboot.usr.dto.UsrUserDto;
+import com.softtech.softtechspringboot.usr.dto.UsrUserSaveDto;
 import com.softtech.softtechspringboot.usr.dto.UsrUserUpdateDto;
 import com.softtech.softtechspringboot.usr.service.UsrUserService;
 import lombok.RequiredArgsConstructor;
@@ -43,9 +44,9 @@ public class UsrUserController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity save(@RequestBody UsrUserDto usrUserDto){
+    public ResponseEntity save(@RequestBody UsrUserSaveDto usrUserSaveDto){
 
-        UsrUserDto usrUserDtoSaved = usrUserService.save(usrUserDto);
+        UsrUserDto usrUserDtoSaved = usrUserService.save(usrUserSaveDto);
         return ResponseEntity.ok(RestResponse.of(usrUserDtoSaved));
 
     }

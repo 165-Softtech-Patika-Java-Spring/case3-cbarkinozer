@@ -77,7 +77,7 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
         Optional<UsrUser> emailMatches = usrUserDao.findByEmail(usrUser.getEmail());
 
         if(emailMatches.isPresent()){
-            boolean isItItself= emailMatches.get().getEmail().equals(usrUser.getEmail());
+            boolean isItItself= emailMatches.get().getId().equals(usrUser.getId());
             if(!isItItself){
                 throw new ItemAlreadyExistsException(UsrErrorMessage.EMAIL_ALREADY_EXISTS);
             }
@@ -89,7 +89,7 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
         Optional<UsrUser> phoneNumberMatches = usrUserDao.findByPhoneNumber(usrUser.getPhoneNumber());
 
         if(phoneNumberMatches.isPresent()){
-            boolean isItItself = phoneNumberMatches.get().getPhoneNumber().equals(usrUser.getPhoneNumber());
+            boolean isItItself = phoneNumberMatches.get().getId().equals(usrUser.getId());
             if(!isItItself){
                 throw new ItemAlreadyExistsException(UsrErrorMessage.PHONE_NUMBER_ALREADY_EXISTS);
             }

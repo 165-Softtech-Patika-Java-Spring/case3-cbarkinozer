@@ -2,6 +2,7 @@ package com.softtech.softtechspringboot.usr.service;
 
 import com.softtech.softtechspringboot.usr.converter.UsrUserMapper;
 import com.softtech.softtechspringboot.usr.dto.UsrUserDto;
+import com.softtech.softtechspringboot.usr.dto.UsrUserSaveDto;
 import com.softtech.softtechspringboot.usr.dto.UsrUserUpdateDto;
 import com.softtech.softtechspringboot.usr.entity.UsrUser;
 import com.softtech.softtechspringboot.usr.service.entityservice.UsrUserEntityService;
@@ -29,8 +30,8 @@ public class UsrUserService {
         return UsrUserMapper.INSTANCE.convertToUsrUserDto(usrUser);
     }
 
-    public UsrUserDto save(UsrUserDto usrUserDto) {
-        UsrUser usrUser = UsrUserMapper.INSTANCE.convertToUsrUser(usrUserDto);
+    public UsrUserDto save(UsrUserSaveDto usrUserSaveDto) {
+        UsrUser usrUser = UsrUserMapper.INSTANCE.convertToUsrUser(usrUserSaveDto);
         usrUser = usrUserEntityService.saveWithControl(usrUser);
         return UsrUserMapper.INSTANCE.convertToUsrUserDto(usrUser);
     }
