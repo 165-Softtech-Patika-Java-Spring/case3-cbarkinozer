@@ -5,6 +5,7 @@ import com.softtech.softtechspringboot.usr.dto.UsrUserDto;
 import com.softtech.softtechspringboot.usr.dto.UsrUserSaveDto;
 import com.softtech.softtechspringboot.usr.dto.UsrUserUpdateDto;
 import com.softtech.softtechspringboot.usr.service.UsrUserService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ public class UsrUserController {
 
     private final UsrUserService usrUserService;
 
+    @Operation(summary="Get all users.")
     @GetMapping
     public ResponseEntity findAll(){
 
@@ -27,6 +29,7 @@ public class UsrUserController {
 
     }
 
+    @Operation(summary="Get a user by id.")
     @GetMapping("/id/{id}")
     public ResponseEntity findById(@PathVariable Long id){
 
@@ -35,6 +38,7 @@ public class UsrUserController {
 
     }
 
+    @Operation(summary="Get a user by unique username.")
     @GetMapping("/username/{username}")
     public ResponseEntity findByUsername(@PathVariable String username){
 
@@ -43,6 +47,7 @@ public class UsrUserController {
 
     }
 
+    @Operation(summary="Save a user.")
     @PostMapping("/save")
     public ResponseEntity save(@RequestBody UsrUserSaveDto usrUserSaveDto){
 
@@ -51,6 +56,7 @@ public class UsrUserController {
 
     }
 
+    @Operation(summary="Update a user.")
     @PatchMapping("/update")
     public ResponseEntity update(@RequestBody UsrUserUpdateDto usrUserUpdateDto){
 
@@ -59,6 +65,7 @@ public class UsrUserController {
 
     }
 
+    @Operation(summary="Delete a user.")
     @DeleteMapping("/delete")
     public ResponseEntity delete(@RequestParam String username, String phoneNumber ) {
         usrUserService.delete(username,phoneNumber);

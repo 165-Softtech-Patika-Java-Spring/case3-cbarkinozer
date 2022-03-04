@@ -4,6 +4,7 @@ import com.softtech.softtechspringboot.cmt.dto.CmtCommentDto;
 import com.softtech.softtechspringboot.cmt.service.CmtCommentService;
 import com.softtech.softtechspringboot.gen.dto.RestResponse;
 import com.softtech.softtechspringboot.usr.dto.UsrUserDto;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +17,7 @@ import java.util.List;
 public class CmtCommentController {
     private final CmtCommentService cmtCommentService;
 
+    @Operation(summary="Get a comment by user id.")
     @GetMapping("/user-id/{userId}")
     public ResponseEntity findByUserId(@PathVariable Long userId){
 
@@ -24,6 +26,7 @@ public class CmtCommentController {
 
     }
 
+    @Operation(summary="Get all comments by product id.")
     @GetMapping("/product-id/{productId}")
     public ResponseEntity findAllByProductId(@PathVariable Long productId){
 
@@ -32,7 +35,7 @@ public class CmtCommentController {
 
     }
 
-
+    @Operation(summary="Save a comment.")
     @PostMapping("/save")
     public ResponseEntity save(@RequestBody CmtCommentDto cmtCommentDto){
 
@@ -41,6 +44,7 @@ public class CmtCommentController {
 
     }
 
+    @Operation(summary="Delete a comment.")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity delete(@PathVariable Long id) {
 

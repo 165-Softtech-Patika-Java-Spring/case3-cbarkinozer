@@ -5,7 +5,6 @@ import com.softtech.softtechspringboot.gen.service.BaseEntityService;
 import com.softtech.softtechspringboot.prd.dao.PrdProductDao;
 import com.softtech.softtechspringboot.prd.entity.PrdProduct;
 import com.softtech.softtechspringboot.prd.enums.PrdErrorMessage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -16,25 +15,26 @@ public class PrdProductEntityService extends BaseEntityService<PrdProduct, PrdPr
 
     private final PrdProductDao prdProductDao;
 
-    @Autowired
     public PrdProductEntityService(PrdProductDao prdProductDao){
         super(prdProductDao);
         this.prdProductDao = prdProductDao;
     }
 
+    public PrdProduct findById(Long id){
+
+        PrdProduct prdProduct = prdProductDao.findById(id)
+                .orElseThrow(()-> new ItemNotFoundException(PrdErrorMessage.PRODUCT_NOT_FOUND));
+
+        return prdProduct;
+    }
+
     public PrdProduct updatePrice(Long id, BigDecimal price) {
 
-        Optional<PrdProduct> productOptional = prdProductDao.findById(id);
-
-        PrdProduct prdProduct;
-
-        if (productOptional.isPresent()){
-            prdProduct = productOptional.get();
-        } else {
-            throw new ItemNotFoundException(PrdErrorMessage.PRODUCT_ERROR_MESSAGE);
-        }
+        PrdProduct prdProduct = prdProductDao.findById(id)
+                .orElseThrow(()->new ItemNotFoundException(PrdErrorMessage.PRODUCT_NOT_FOUND));
 
         prdProduct.setPrice(price);
         return prdProductDao.save(prdProduct);
     }
+
 }

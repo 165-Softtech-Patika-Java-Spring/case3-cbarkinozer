@@ -9,7 +9,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="USR_USER")
-@Getter @Setter
+@Getter
+@Setter
 public class UsrUser extends BaseEntity {
 
     @Id

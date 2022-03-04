@@ -5,8 +5,6 @@ import com.softtech.softtechspringboot.cmt.entity.CmtComment;
 import com.softtech.softtechspringboot.cmt.enums.CmtErrorMessage;
 import com.softtech.softtechspringboot.gen.exceptions.ItemNotFoundException;
 import com.softtech.softtechspringboot.gen.service.BaseEntityService;
-import com.softtech.softtechspringboot.usr.entity.UsrUser;
-import com.softtech.softtechspringboot.usr.enums.UsrErrorMessage;
 import org.springframework.stereotype.Service;
 
 
@@ -25,35 +23,25 @@ public class CmtCommentEntityService extends BaseEntityService<CmtComment, CmtCo
 
     public CmtComment getByUserIdWithControl(Long userId) {
 
-        CmtComment cmtComment = checkIfCommentExistsByUserId(userId);
-        return cmtComment;
+        return checkIfCommentExistsByUserId(userId);
 
     }
 
     private CmtComment checkIfCommentExistsByUserId(Long userId) {
 
-        Optional<CmtComment> commentOptional = cmtCommentDao.findByUserId(userId);
+        CmtComment cmtComment = cmtCommentDao.findByUserId(userId)
+                .orElseThrow(() -> new ItemNotFoundException(CmtErrorMessage.USER_HAS_NO_COMMENT));
 
-        CmtComment cmtComment;
-        if (commentOptional.isPresent()){
-            cmtComment = commentOptional.get();
-        } else {
-            throw new ItemNotFoundException(CmtErrorMessage.USER_HAS_NO_COMMENT);
-        }
+
         return cmtComment;
     }
 
 
     public List<CmtComment> getAllByProductId(Long productId) {
 
-        Optional<CmtComment> commentOptional = cmtCommentDao.findAllByProductId(productId);
+        List<CmtComment> cmtCommentList = cmtCommentDao.findAllByProductId(productId)
+                .orElseThrow(()-> new ItemNotFoundException(CmtErrorMessage.PRODUCT_HAS_NO_COMMENT));
 
-        List<CmtComment> cmtCommentList;
-        if (commentOptional.isPresent()){
-            cmtCommentList= commentOptional.stream().toList();
-        } else {
-            throw new ItemNotFoundException(CmtErrorMessage.PRODUCT_HAS_NO_COMMENT);
-        }
         return cmtCommentList;
 
     }
@@ -72,14 +60,8 @@ public class CmtCommentEntityService extends BaseEntityService<CmtComment, CmtCo
 
     private CmtComment checkIfCommentExistsById(Long id){
 
-        Optional<CmtComment> commentOptional = cmtCommentDao.findById(id);
-
-        CmtComment cmtComment;
-        if (commentOptional.isPresent()){
-            cmtComment = commentOptional.get();
-        } else {
-            throw new ItemNotFoundException(CmtErrorMessage.COMMENT_NOT_FOUND);
-        }
+        CmtComment cmtComment = cmtCommentDao.findById(id)
+                .orElseThrow(()-> new ItemNotFoundException(CmtErrorMessage.COMMENT_NOT_FOUND));
 
         return cmtComment;
 

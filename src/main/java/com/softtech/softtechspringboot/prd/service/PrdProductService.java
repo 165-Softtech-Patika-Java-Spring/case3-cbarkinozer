@@ -1,9 +1,11 @@
 package com.softtech.softtechspringboot.prd.service;
 
 
+import com.softtech.softtechspringboot.gen.exceptions.ItemNotFoundException;
 import com.softtech.softtechspringboot.prd.converter.PrdProductMapper;
 import com.softtech.softtechspringboot.prd.dto.PrdProductDto;
 import com.softtech.softtechspringboot.prd.entity.PrdProduct;
+import com.softtech.softtechspringboot.prd.enums.PrdErrorMessage;
 import com.softtech.softtechspringboot.prd.service.entityservice.PrdProductEntityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,7 +25,7 @@ public class PrdProductService {
     }
 
     public PrdProductDto findById(Long id){
-        PrdProduct prdProduct = prdProductEntityService.getByIdWithControl(id);
+        PrdProduct prdProduct = prdProductEntityService.findById(id);
         return PrdProductMapper.INSTANCE.convertToPrdProductDto(prdProduct);
     }
 
@@ -39,7 +41,7 @@ public class PrdProductService {
     }
 
     public void delete(Long id){
-        PrdProduct prdProduct = prdProductEntityService.getByIdWithControl(id);
+        PrdProduct prdProduct = prdProductEntityService.findById(id);
         prdProductEntityService.delete(prdProduct);
     }
 

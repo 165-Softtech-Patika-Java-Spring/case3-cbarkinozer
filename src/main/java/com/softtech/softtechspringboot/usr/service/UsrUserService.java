@@ -22,7 +22,7 @@ public class UsrUserService {
         return UsrUserMapper.INSTANCE.convertToUsrUserDtoList(usrUserList);
     }
     public UsrUserDto findById(Long id){
-        UsrUser usrUser = usrUserEntityService.getByIdWithControl(id);
+        UsrUser usrUser = usrUserEntityService.findByIdWithControl(id);
         return UsrUserMapper.INSTANCE.convertToUsrUserDto(usrUser);
     }
     public UsrUserDto findByUsername(String username){

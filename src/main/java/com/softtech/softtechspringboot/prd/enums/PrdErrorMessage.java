@@ -4,7 +4,7 @@ import com.softtech.softtechspringboot.gen.enums.BaseErrorMessage;
 
 public enum PrdErrorMessage implements BaseErrorMessage {
 
-    PRODUCT_ERROR_MESSAGE("Product not found!"),
+    PRODUCT_NOT_FOUND("Product not found!"),
     ;
 
     private String message;

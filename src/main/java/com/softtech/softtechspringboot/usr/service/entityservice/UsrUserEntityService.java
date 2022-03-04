@@ -1,6 +1,7 @@
 package com.softtech.softtechspringboot.usr.service.entityservice;
 
 
+import com.softtech.softtechspringboot.gen.entity.BaseEntity;
 import com.softtech.softtechspringboot.gen.exceptions.ItemAlreadyExistsException;
 import com.softtech.softtechspringboot.gen.exceptions.ItemNotFoundException;
 import com.softtech.softtechspringboot.gen.exceptions.UnmatchedFieldsException;
@@ -23,24 +24,23 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
         this.usrUserDao=usrUserDao;
     }
 
-    public UsrUser getByUsernameWithControl(String username) {
+    public UsrUser findByIdWithControl(Long id) {
 
-        UsrUser usrUser = checkIfUserExistsByUsername(username);
-        return usrUser;
+        return usrUserDao.findById(id)
+                .orElseThrow(()-> new ItemNotFoundException(UsrErrorMessage.USER_NOT_FOUND));
 
     }
 
-    private UsrUser checkIfUserExistsByUsername(String username){
+    public UsrUser getByUsernameWithControl(String username) {
 
-        Optional<UsrUser> userOptional = usrUserDao.findByUsername(username);
+        return checkIfUserExistsByUsername(username)
+                .orElseThrow(()-> new ItemNotFoundException(UsrErrorMessage.USER_NOT_FOUND));
 
-        UsrUser usrUser;
-        if (userOptional.isPresent()){
-            usrUser = userOptional.get();
-        } else {
-            throw new ItemNotFoundException(UsrErrorMessage.USER_NOT_FOUND);
-        }
-        return usrUser;
+    }
+
+    private Optional<UsrUser> checkIfUserExistsByUsername(String username){
+
+        return usrUserDao.findByUsername(username);
 
     }
 
@@ -55,48 +55,57 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
         return usrUser;
 
     }
-    /*
-    *  I am well aware that following three methods are same, but I could not get generalized
-    *  them because of the method usage.
-    */
 
     private void checkIfUsernameAlreadyExists(UsrUser usrUser){
 
-        Optional<UsrUser> usernameMatches = usrUserDao.findByUsername(usrUser.getUsername());
-        if(usernameMatches.isPresent()){
-            boolean isItItself= usernameMatches.get().getId().equals(usrUser.getId());
-            if(!isItItself){
-                throw new ItemAlreadyExistsException(UsrErrorMessage.USERNAME_ALREADY_EXISTS);
-            }
+        Optional<UsrUser> usernameOptional = usrUserDao.findByUsername(usrUser.getUsername());
+
+        boolean didMatchedItself = didMatchedItself(usernameOptional, usrUser);
+
+        if(!didMatchedItself){
+            throw new ItemAlreadyExistsException(UsrErrorMessage.USERNAME_ALREADY_EXISTS);
         }
 
     }
 
     private void checkIfEmailAlreadyExists(UsrUser usrUser){
 
-        Optional<UsrUser> emailMatches = usrUserDao.findByEmail(usrUser.getEmail());
+        Optional<UsrUser> emailOptional = usrUserDao.findByEmail(usrUser.getEmail());
 
-        if(emailMatches.isPresent()){
-            boolean isItItself= emailMatches.get().getId().equals(usrUser.getId());
-            if(!isItItself){
-                throw new ItemAlreadyExistsException(UsrErrorMessage.EMAIL_ALREADY_EXISTS);
-            }
+        boolean didMatchedItself = didMatchedItself(emailOptional, usrUser);
+
+        if(!didMatchedItself){
+            throw new ItemAlreadyExistsException(UsrErrorMessage.EMAIL_ALREADY_EXISTS);
         }
     }
 
     private void checkIfPhoneNumberAlreadyExists(UsrUser usrUser){
 
-        Optional<UsrUser> phoneNumberMatches = usrUserDao.findByPhoneNumber(usrUser.getPhoneNumber());
+        Optional<UsrUser> phoneNumberOptional = usrUserDao.findByPhoneNumber(usrUser.getPhoneNumber());
 
-        if(phoneNumberMatches.isPresent()){
-            boolean isItItself = phoneNumberMatches.get().getId().equals(usrUser.getId());
-            if(!isItItself){
-                throw new ItemAlreadyExistsException(UsrErrorMessage.PHONE_NUMBER_ALREADY_EXISTS);
-            }
+        boolean didMatchedItself = didMatchedItself(phoneNumberOptional, usrUser);
 
+        if(!didMatchedItself){
+            throw new ItemAlreadyExistsException(UsrErrorMessage.PHONE_NUMBER_ALREADY_EXISTS);
+        }
+    }
+
+    private Boolean didMatchedItself(Optional<UsrUser> optional, BaseEntity ownEntity){
+
+        BaseEntity entity;
+
+        if(optional.isPresent()) {
+
+            entity = optional.get();
+            return entity.getId().equals(ownEntity.getId());
+            
+        }else{
+            return true;
         }
 
+
     }
+
 
     public UsrUser update(UsrUser usrUser) {
 
@@ -124,13 +133,23 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
 
     private UsrUser checkIfUsernameAndPhoneNumberMatch(String username, String phoneNumber){
 
-        UsrUser usrUser = checkIfUserExistsByUsername(username);
+        Optional<UsrUser> userOptional = checkIfUserExistsByUsername(username);
+
+        UsrUser usrUser;
+        if(userOptional.isPresent()){
+             usrUser = userOptional.get();
+        }else{
+            throw new ItemNotFoundException(UsrErrorMessage.USER_NOT_FOUND);
+        }
 
         if(!usrUser.getPhoneNumber().equals(phoneNumber)){
             throw new UnmatchedFieldsException(UsrErrorMessage.UNMATCHED_EMAIL_AND_PHONE_NUMBER);
         }
+
         return usrUser;
+
     }
+
 
 
 }
