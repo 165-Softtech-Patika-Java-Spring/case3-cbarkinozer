@@ -11,6 +11,6 @@ import java.util.Optional;
 public interface CmtCommentDao extends JpaRepository<CmtComment,Long> {
 
     Optional<CmtComment> findByUserId(Long userId);
-    Optional<List<CmtComment>> findAllByProductId(Long productId);
+    List<CmtComment> findAllByProductId(Long productId);
 
 }

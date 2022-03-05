@@ -23,8 +23,8 @@ Bir online alışveriş sitesinin kullanıcı yorumlarını yöneten bir api yaz
 
 3. **Yorum Controller ında;**
 - Bir kullanıcının yaptığı yorumlari getiren bir servis yazınız. Eğer ilgili kullanıcının henüz bir 
-yorumu yoksa “XXX kullanıcı henüz bir yorum yazmamıştır” şeklinde bir hata vermeli. (findByUserIdWithControl)   ✓
-- Bir ürüne yapılan tüm yorumları getiren bir servis yazınız. Eğer o ürüne henüz bir yorum  (findAllByProductIdWithControl) ✓
+yorumu yoksa “XXX kullanıcı henüz bir yorum yazmamıştır” şeklinde bir hata vermeli. (findByUserId)   ✓
+- Bir ürüne yapılan tüm yorumları getiren bir servis yazınız. Eğer o ürüne henüz bir yorum  (findAllByProductId) ✓
 yazılmamışsa “XXX ürüne henüz bir yorum yazılmamıştır” şeklinde bir hata vermeli.  
 - Yeni bir yorum yazılabilecek bir servis yazınız. (save)  ✓
 - Yorum silebilecek bir servis yazınız.  (delete) ✓

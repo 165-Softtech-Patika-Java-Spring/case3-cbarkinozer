@@ -2,9 +2,9 @@ package com.softtech.softtechspringboot.usr.service.entityservice;
 
 
 import com.softtech.softtechspringboot.gen.entity.BaseEntity;
+import com.softtech.softtechspringboot.gen.exceptions.IllegalFieldException;
 import com.softtech.softtechspringboot.gen.exceptions.ItemAlreadyExistsException;
 import com.softtech.softtechspringboot.gen.exceptions.ItemNotFoundException;
-import com.softtech.softtechspringboot.gen.exceptions.UnmatchedFieldsException;
 import com.softtech.softtechspringboot.gen.service.BaseEntityService;
 import com.softtech.softtechspringboot.usr.dao.UsrUserDao;
 import com.softtech.softtechspringboot.usr.entity.UsrUser;
@@ -143,7 +143,7 @@ public class UsrUserEntityService extends BaseEntityService<UsrUser, UsrUserDao>
         }
 
         if(!usrUser.getPhoneNumber().equals(phoneNumber)){
-            throw new UnmatchedFieldsException(UsrErrorMessage.UNMATCHED_EMAIL_AND_PHONE_NUMBER);
+            throw new IllegalFieldException(username,phoneNumber,UsrErrorMessage.UNMATCHED_USERNAME_AND_PHONE_NUMBER);
         }
 
         return usrUser;

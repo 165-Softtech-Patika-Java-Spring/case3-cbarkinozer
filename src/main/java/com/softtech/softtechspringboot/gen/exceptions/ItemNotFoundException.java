@@ -9,4 +9,7 @@ public class ItemNotFoundException extends RuntimeException {
     public ItemNotFoundException(BaseErrorMessage message) {
         super(message.getMessage());
     }
+    public ItemNotFoundException(String itemName,BaseErrorMessage message) {
+        super(itemName+" named "+message.getMessage());
+    }
 }

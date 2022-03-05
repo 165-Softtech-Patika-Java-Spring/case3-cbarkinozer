@@ -5,8 +5,9 @@ import com.softtech.softtechspringboot.gen.enums.BaseErrorMessage;
 public enum CmtErrorMessage implements BaseErrorMessage {
 
     COMMENT_NOT_FOUND("Comment not found!"),
-    USER_HAS_NO_COMMENT("Queried user has no comment!"),
-    PRODUCT_HAS_NO_COMMENT("Queried product has no comment!")
+    COMMENT_IS_BLANK("Comment is blank!"),
+    USER_HAS_NO_COMMENT("user has no comment!"),
+    PRODUCT_HAS_NO_COMMENT("product has no comment!")
     ;
 
     private String message;

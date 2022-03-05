@@ -3,7 +3,6 @@ package com.softtech.softtechspringboot.cmt.controller;
 import com.softtech.softtechspringboot.cmt.dto.CmtCommentDto;
 import com.softtech.softtechspringboot.cmt.service.CmtCommentService;
 import com.softtech.softtechspringboot.gen.dto.RestResponse;
-import com.softtech.softtechspringboot.usr.dto.UsrUserDto;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
