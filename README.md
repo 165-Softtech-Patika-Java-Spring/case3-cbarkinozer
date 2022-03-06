@@ -40,4 +40,3 @@ bir araştırma yapmanız gerekecek.   ✓
 # Notes  
 Database table design : https://ibb.co/wpbn6DF  
 All works on Swagger  
-
