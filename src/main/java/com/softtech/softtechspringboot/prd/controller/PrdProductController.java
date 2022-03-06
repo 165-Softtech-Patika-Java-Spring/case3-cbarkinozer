@@ -18,35 +18,35 @@ public class PrdProductController {
 
     private final PrdProductService prdProductService;
 
-    @Operation(summary="Get all products.")
+    @Operation(tags="Product Controller",summary="Get all products.")
     @GetMapping
     public ResponseEntity findAll(){
         List<PrdProductDto> prdProductDtoList = prdProductService.findAll();
         return ResponseEntity.ok(RestResponse.of(prdProductDtoList));
     }
 
-    @Operation(summary="Get a product by id.")
+    @Operation(tags="Product Controller",summary="Get a product by id.")
     @GetMapping("/{id}")
     public ResponseEntity findById(@PathVariable Long id){
         PrdProductDto prdProductDto = prdProductService.findById(id);
         return ResponseEntity.ok(RestResponse.of(prdProductDto));
     }
 
-    @Operation(summary="Save a product.")
+    @Operation(tags="Product Controller",summary="Save a product.")
     @PostMapping("/save")
     public ResponseEntity save(@RequestBody PrdProductDto prdProductDto){
         PrdProductDto prdProductDtoSaved = prdProductService.save(prdProductDto);
         return ResponseEntity.ok(RestResponse.of(prdProductDtoSaved));
     }
 
-    @Operation(summary="Update the price of a product.")
+    @Operation(tags="Product Controller",summary="Update the price of a product.")
     @PatchMapping("/update-price/{id}")
     public ResponseEntity updatePrice(@PathVariable Long id, @RequestParam BigDecimal price){
         PrdProductDto prdProductDto = prdProductService.updatePrice(id,price);
         return ResponseEntity.ok(RestResponse.of(prdProductDto));
     }
 
-    @Operation(summary="Delete a product.")
+    @Operation(tags="Product Controller",summary="Delete a product.")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity delete(@PathVariable Long id){
         prdProductService.delete(id);

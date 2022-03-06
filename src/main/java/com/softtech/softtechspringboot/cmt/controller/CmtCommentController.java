@@ -16,7 +16,7 @@ import java.util.List;
 public class CmtCommentController {
     private final CmtCommentService cmtCommentService;
 
-    @Operation(summary="Get a comment by user id.")
+    @Operation(tags="Comment Controller", summary="Get a comment by user id.")
     @GetMapping("/user-id/{userId}")
     public ResponseEntity findByUserId(@PathVariable Long userId){
 
@@ -25,7 +25,7 @@ public class CmtCommentController {
 
     }
 
-    @Operation(summary="Get all comments by product id.")
+    @Operation(tags="Comment Controller",summary="Get all comments by product id.")
     @GetMapping("/product-id/{productId}")
     public ResponseEntity findAllByProductId(@PathVariable Long productId){
 
@@ -34,7 +34,7 @@ public class CmtCommentController {
 
     }
 
-    @Operation(summary="Save a comment.")
+    @Operation(tags="Comment Controller",summary="Save a comment.")
     @PostMapping("/save")
     public ResponseEntity save(@RequestBody CmtCommentDto cmtCommentDto){
 
@@ -43,7 +43,7 @@ public class CmtCommentController {
 
     }
 
-    @Operation(summary="Delete a comment.")
+    @Operation(tags="Comment Controller",summary="Delete a comment.")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity delete(@PathVariable Long id) {
 
